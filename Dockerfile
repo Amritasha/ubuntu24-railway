@@ -8,7 +8,7 @@ RUN apt-get update && \
         net-tools iproute2 iputils-ping dnsutils \
         vim nano htop tree unzip zip \
         build-essential gcc g++ make \
-        openssh-client telnet netcat \
+        openssh-client telnet netcat-openbsd \
         jq less man-db sudo lsof strace && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
