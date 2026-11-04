@@ -18,8 +18,8 @@ RUN wget -qO /bin/ttyd https://github.com/tsl0922/ttyd/releases/download/1.7.3/t
 RUN echo "neofetch" >> /root/.bashrc && \
     echo "cd /root" >> /root/.bashrc
 
-EXPOSE $PORT
+EXPOSE 7681
 
 CMD ["/bin/bash", "-c", "\
     echo \"export PS1='\\[\\033[01;32m\\]$USERNAME@\\h\\[\\033[00m\\]:\\[\\033[01;34m\\]\\w\\[\\033[00m\\]\\$ '\" >> /root/.bashrc && \
-    /bin/ttyd -p $PORT -c $USERNAME:$PASSWORD /bin/bash"]
+    exec /bin/ttyd -p \"$PORT\" -c \"$USERNAME:$PASSWORD\" /bin/bash"]
