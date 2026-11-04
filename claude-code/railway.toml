@@ -1,0 +1,14 @@
+[build]
+builder = "dockerfile"
+dockerfilePath = "Dockerfile"
+
+[deploy]
+restartPolicyType = "on_failure"
+restartPolicyMaxRetries = 10
+
+# No [deploy.resources] ceiling. Claude Code documents a 4GB+ RAM requirement,
+# and this image also ships build-essential; a fixed cap would break both.
+
+[[volumes]]
+mountPath = "/root"
+name = "claude-terminal-data"
