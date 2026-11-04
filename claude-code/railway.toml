@@ -9,6 +9,5 @@ restartPolicyMaxRetries = 10
 # No [deploy.resources] ceiling. Claude Code documents a 4GB+ RAM requirement,
 # and this image also ships build-essential; a fixed cap would break both.
 
-[[volumes]]
-mountPath = "/root"
-name = "claude-terminal-data"
+# The volume at /root is declared on the template itself, so the marketplace
+# deploy form creates exactly one. Declaring it here too would duplicate it.
